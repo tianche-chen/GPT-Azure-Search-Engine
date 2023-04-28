@@ -71,7 +71,6 @@ elif (not os.environ.get("AZURE_OPENAI_ENDPOINT")) or (os.environ.get("AZURE_OPE
     st.error("Please set your AZURE_OPENAI_ENDPOINT on your Web App Settings")
 elif (not os.environ.get("AZURE_OPENAI_API_KEY")) or (os.environ.get("AZURE_OPENAI_API_KEY") == ""):
     st.error("Please set your AZURE_OPENAI_API_KEY on your Web App Settings")
-
 else: 
     os.environ["OPENAI_API_BASE"] = os.environ.get("AZURE_OPENAI_ENDPOINT")
     os.environ["OPENAI_API_KEY"] = os.environ.get("AZURE_OPENAI_API_KEY")
@@ -130,9 +129,11 @@ else:
             answer = open_chain.run(query)
         else:
 
-            index1_name = "cogsrch-index-files"
-            index2_name = "cogsrch-index-csv"
-            indexes = [index1_name, index2_name]
+            # index1_name = "cogsrch-index-files"
+            # index2_name = "cogsrch-index-csv"
+            # indexes = [index1_name, index2_name]
+            index_name = "cogsrch-index-files-hans"
+            indexes = [index_name]
 
             agg_search_results = get_search_results(query, indexes)
 
